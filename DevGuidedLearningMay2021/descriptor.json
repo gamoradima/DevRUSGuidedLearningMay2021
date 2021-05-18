@@ -1,0 +1,15 @@
+﻿{
+  "Descriptor": {
+    "UId": "79027c03-caa6-440b-1df3-d44467d8b261",
+    "Name": "DevGuidedLearningMay2021",
+    "ModifiedOnUtc": "\/Date(1621341562000)\/",
+    "Maintainer": "Customer",
+    "DependsOn": [
+      {
+        "UId": "d7559847-f38e-410c-baee-6f43bbe80d42",
+        "PackageVersion": "7.8.0",
+        "Name": "SalesEnterpriseSoftkey_ENU"
+      }
+    ]
+  }
+}
