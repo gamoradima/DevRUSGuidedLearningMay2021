@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "a4fc6de6-4e74-4751-845d-3f5d7434c0a9",
+    "Name": "Order",
+    "ModifiedOnUtc": "\/Date(1621429052000)\/",
+    "Parent": {
+      "UId": "80294582-06b5-4faa-a85f-3323e5536b71",
+      "Name": "Order"
+    },
+    "ExtendParent": true,
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Заказ"
+  }
+}

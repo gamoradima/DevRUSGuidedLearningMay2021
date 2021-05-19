@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Страница редактирования: &quot;Недвижимость&quot;" />
+			<Item Name="LocalizableStrings.MyButtonCaption.Value" Value="Моя кнопка!" />
+			<Item Name="LocalizableStrings.Tab899d75edTabLabelTabCaption.Value" Value="ПРОСМОТРЫ" />
+			<Item Name="LocalizableStrings.UsrRealtyVisitDetailDetailCaptionOnPage.Value" Value="Просмотр недвижимости" />
+		</Items>
+	</Group>
+</Resources>

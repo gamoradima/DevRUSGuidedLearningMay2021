@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "64c1c829-e175-4f55-8b71-3f434f0ea0d0",
+    "Name": "UsrRealtyFile",
+    "ModifiedOnUtc": "\/Date(1621426575000)\/",
+    "Parent": {
+      "UId": "556c5867-60a7-4456-aae1-a57a122bef70",
+      "Name": "File"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Файл и ссылка объекта Недвижимость"
+  }
+}
