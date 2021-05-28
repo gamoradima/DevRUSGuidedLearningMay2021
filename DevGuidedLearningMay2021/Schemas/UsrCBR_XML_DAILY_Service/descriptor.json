@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "0121a740-e537-4998-a809-26ee87c84a50",
+    "Name": "UsrCBR_XML_DAILY_Service",
+    "ModifiedOnUtc": "\/Date(1622208426000)\/",
+    "ManagerName": "ServiceSchemaManager",
+    "Caption": "https://www.cbr-xml-daily.ru",
+    "DependsOn": []
+  }
+}

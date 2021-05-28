@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="ru-RU">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Результаты вызова веб-сервиса" />
+			<Item Name="Parameters.3fb2dd92-7796-4023-845c-89837f596bb9.Caption" Value="Тело ответа" />
+			<Item Name="Parameters.7e531799-7e35-48c5-aa26-5c06eebaf002.Caption" Value="Курс USD" />
+			<Item Name="Parameters.9d5e6a6f-79b9-4f9c-9612-afb4057b66a5.Caption" Value="Дата" />
+			<Item Name="Parameters.c49bd85e-159a-49ee-b10a-3c3bca63d7d5.Value.c4841740-ff8c-406f-8626-1c78f78608bf.Caption" Value="Закрыть" />
+			<Item Name="Parameters.c49bd85e-159a-49ee-b10a-3c3bca63d7d5.Value.f073e66a-36ec-47d7-9c6a-e5952dbf05a3.Caption" Value="Сохранить" />
+		</Items>
+	</Group>
+</Resources>

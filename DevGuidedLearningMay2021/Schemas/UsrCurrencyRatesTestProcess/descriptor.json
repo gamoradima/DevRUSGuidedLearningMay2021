@@ -1,0 +1,9 @@
+﻿{
+  "Descriptor": {
+    "UId": "b78c2f0f-3936-4846-bc4e-83cab3aa2aac",
+    "Name": "UsrCurrencyRatesTestProcess",
+    "ModifiedOnUtc": "\/Date(1622208915000)\/",
+    "ManagerName": "ProcessSchemaManager",
+    "Caption": "Получение курсов валют"
+  }
+}

@@ -1,0 +1,29 @@
+﻿{
+  "PackageData": [
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "a57972b7-ce44-4f8b-8533-7aa3840b9947"
+        },
+        {
+          "SchemaColumnUId": "4420cc5f-5a43-490b-b583-f8572ac29dce",
+          "Value": "87c141d6-f8d4-4440-bd7e-674a0bf0f1d6",
+          "DisplayValue": "Недвижимость"
+        },
+        {
+          "SchemaColumnUId": "a9f680eb-bc67-4aac-919e-0ad9f1000690",
+          "Value": "86e9d083-c20e-4e56-a3c2-1222d506ceaa"
+        },
+        {
+          "SchemaColumnUId": "aadb966f-e2f2-4239-b56f-51ba5fdf0533",
+          "Value": 1
+        },
+        {
+          "SchemaColumnUId": "18fd508a-8e32-454d-bd8a-82a9d4028ace",
+          "Value": "53f18e61-3947-4acf-b25a-c703a40caa81"
+        }
+      ]
+    }
+  ]
+}

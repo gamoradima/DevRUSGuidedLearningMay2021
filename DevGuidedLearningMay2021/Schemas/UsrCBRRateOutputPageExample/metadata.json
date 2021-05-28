@@ -1,0 +1,40 @@
+= MetaData.Schema.UId "77200a93-5cee-4558-85a9-52b06c15d0be"
+= MetaData.Schema.A2 "UsrCBRRateOutputPageExample"
+= MetaData.Schema.B6 "79027c03-caa6-440b-1df3-d44467d8b261"
+= MetaData.Schema.B8 "7.18.0.1353"
+= MetaData.Schema.HD1 "5826ff24-46c6-4169-9223-2aaad9ec2e18"
+= MetaData.Schema.HD11.["c49bd85e-159a-49ee-b10a-3c3bca63d7d5"].L8.GS2 "{\"$type\":\"Terrasoft.Core.Process.LocalizableParameterValuesList, Terrasoft.Core\",\"$values\":[{\"ItemUId\":\"f073e66a-36ec-47d7-9c6a-e5952dbf05a3\",\"Id\":{\"value\":\"f073e66a-36ec-47d7-9c6a-e5952dbf05a3\"},\"Name\":{\"value\":\"Button-be6148b819154a0791eaee8f1635d859\"},\"Tag\":{\"value\":\"SaveData\"},\"Caption\":{\"isLczValue\":true},\"PerformClosePage\":{\"value\":\"True\"},\"PerformSaveData\":{\"value\":\"True\"},\"GenerateSignal\":{\"value\":\"\"}},{\"ItemUId\":\"c4841740-ff8c-406f-8626-1c78f78608bf\",\"Id\":{\"value\":\"c4841740-ff8c-406f-8626-1c78f78608bf\"},\"Name\":{\"value\":\"Button-3a8ac667899d4aa68021a07eb1c7c49c\"},\"Tag\":{\"value\":\"ClosePage\"},\"Caption\":{\"isLczValue\":true},\"PerformClosePage\":{\"value\":\"False\"},\"PerformSaveData\":{\"value\":\"False\"},\"GenerateSignal\":{\"value\":\"\"}}]}"
++ MetaData.Schema.HD11 {
+  "BL1": "Terrasoft.Core.ClientUnitSchemaParameter",
+  "UId": "9d5e6a6f-79b9-4f9c-9612-afb4057b66a5",
+  "A2": "UsrDatetime1",
+  "A3": "77200a93-5cee-4558-85a9-52b06c15d0be",
+  "A4": "77200a93-5cee-4558-85a9-52b06c15d0be",
+  "L1": "d21e9ef4-c064-4012-b286-fa1a8171da44",
+  "L8": {
+    "GS2": ""
+  }
+}
++ MetaData.Schema.HD11 {
+  "BL1": "Terrasoft.Core.ClientUnitSchemaParameter",
+  "UId": "7e531799-7e35-48c5-aa26-5c06eebaf002",
+  "A2": "UsrFloat1",
+  "A3": "77200a93-5cee-4558-85a9-52b06c15d0be",
+  "A4": "77200a93-5cee-4558-85a9-52b06c15d0be",
+  "L1": "ff22e049-4d16-46ee-a529-92d8808932dc",
+  "L8": {
+    "GS2": ""
+  }
+}
++ MetaData.Schema.HD11 {
+  "BL1": "Terrasoft.Core.ClientUnitSchemaParameter",
+  "UId": "3fb2dd92-7796-4023-845c-89837f596bb9",
+  "A2": "UsrString1",
+  "A3": "77200a93-5cee-4558-85a9-52b06c15d0be",
+  "A4": "77200a93-5cee-4558-85a9-52b06c15d0be",
+  "L1": "c0f04627-4620-4bc0-84e5-9419dc8516b1",
+  "L8": {}
+}
+~ MetaData.Schema.HD11 ["c49bd85e-159a-49ee-b10a-3c3bca63d7d5","9d5e6a6f-79b9-4f9c-9612-afb4057b66a5","7e531799-7e35-48c5-aa26-5c06eebaf002","3fb2dd92-7796-4023-845c-89837f596bb9"]
+- MetaData.Schema.B7
++ MetaData.Schema.B7 false

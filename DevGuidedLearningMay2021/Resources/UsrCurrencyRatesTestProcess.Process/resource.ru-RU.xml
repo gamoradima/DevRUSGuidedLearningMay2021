@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="ru-RU">
+	<Group Type="String">
+		<Items>
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Caption" Value="Показать курс валют" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Buttons.Caption" Value="Кнопки" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Buttons.Value.c4841740-ff8c-406f-8626-1c78f78608bf.Caption" Value="Закрыть" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Buttons.Value.f073e66a-36ec-47d7-9c6a-e5952dbf05a3.Caption" Value="Сохранить" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.ClientUnitSchemaUId.Caption" Value="Модуль" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.ClientUnitSchemaUId.DisplayValue" Value="Результаты вызова веб-сервиса | UsrCBRRateOutputPageExample" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.EntityId.Caption" Value="Объект" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.EntitySchemaUId.Caption" Value="Схема объекта" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.EntryPointId.Caption" Value="Точка входа" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.InformationOnStep.Caption" Value="Информация по шагу" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.IsRunning.Caption" Value="Выполняется" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Module.Caption" Value="Модуль" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Module.DisplayValue" Value="[#Справочник.Используемая схема в рабочем пространстве (представление) .Модуль отображения страницы по процессу.eb89c336-08b9-4951-bffd-3f5abc433174#]" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.OwnerId.Caption" Value="Ответственный" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.OwnerId.DisplayValue" Value="[#Системная переменная.Контакт текущего пользователя#]" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.PressedButtonCode.Caption" Value="Код нажатой кнопки" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Recommendation.Caption" Value="Рекомендация" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.ShowExecutionPage.Caption" Value="Показывать страницу выполнения автоматически" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.ShowExecutionPage.DisplayValue" Value="true" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Template.Caption" Value="Шаблон" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Template.DisplayValue" Value="[#Справочник.Используемая схема в рабочем пространстве (представление) .Страница с островом сверху и вкладками.21620f25-166f-42f1-8b4d-224a959040a3#]" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Title.Caption" Value="Заголовок" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Title.DisplayValue" Value="Результаты вызова веб-сервиса" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Title.Value" Value="Результаты вызова веб-сервиса" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Url.Caption" Value="Url" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Url.DisplayValue" Value="&quot;[Module]/[Page]/add&quot;" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.UseCardProcessModule.Caption" Value="Использовать стандартный генератор страниц" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.UsrDatetime1.Caption" Value="Дата" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.UsrDatetime1.DisplayValue" Value="[#https://www.cbr-xml-daily.ru 1.Date#]" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.UsrFloat1.Caption" Value="Курс USD" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.UsrFloat1.DisplayValue" Value="[#https://www.cbr-xml-daily.ru 1.Valute USD Value#]" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.UsrString1.Caption" Value="Тело ответа" />
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.UsrString1.DisplayValue" Value="[#https://www.cbr-xml-daily.ru 1.Тело ответа сервиса#]" />
+			<Item Name="BaseElements.TerminateEvent1.Caption" Value="Это конец!" />
+			<Item Name="BaseElements.WebService1.Caption" Value="https://www.cbr-xml-daily.ru 1" />
+			<Item Name="BaseElements.WebService1.Parameters.RequestBody.Caption" Value="Тело запроса сервиса" />
+			<Item Name="BaseElements.WebService1.Parameters.Response.Caption" Value="Тело ответа сервиса" />
+			<Item Name="BaseElements.WebService1.Parameters.StatusCode.Caption" Value="Http код состояния" />
+			<Item Name="BaseElements.WebService1.Parameters.Success.Caption" Value="Успешно выполнен" />
+			<Item Name="BaseElements.WebService1.Parameters.UsrDate_Out.Caption" Value="Date" />
+			<Item Name="BaseElements.WebService1.Parameters.UsrValue_Out.Caption" Value="Valute USD Value" />
+			<Item Name="Caption" Value="Получение курсов валют" />
+			<Item Name="LaneSets.LaneSet1.Caption" Value="LaneSet 1" />
+			<Item Name="LaneSets.LaneSet1.Lanes.Lane1.Caption" Value="Lane 1" />
+			<Item Name="NotificationCaption.Caption" Value="Заголовок экземпляра процесса" />
+			<Item Name="NotificationCaption.DisplayValue" Value="[#Название процесса#]" />
+		</Items>
+	</Group>
+</Resources>

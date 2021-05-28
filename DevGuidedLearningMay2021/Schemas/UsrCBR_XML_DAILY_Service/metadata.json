@@ -1,0 +1,63 @@
+﻿{
+  "MetaData": {
+    "Schema": {
+      "ManagerName": "ServiceSchemaManager",
+      "UId": "0121a740-e537-4998-a809-26ee87c84a50",
+      "A2": "UsrCBR_XML_DAILY_Service",
+      "A5": "3420c328-d338-4288-82e9-2f5f42d6ecff",
+      "B1": [],
+      "B2": [],
+      "B3": [],
+      "B6": "79027c03-caa6-440b-1df3-d44467d8b261",
+      "B8": "7.18.0.1353",
+      "IQ1": "https://www.cbr-xml-daily.ru",
+      "IQ2": 1,
+      "IQ7": [],
+      "IQ4": [
+        {
+          "UId": "6f63370a-2d1c-4aa2-9ab1-2073ca570209",
+          "A2": "UsrMethod1",
+          "A3": "0121a740-e537-4998-a809-26ee87c84a50",
+          "A4": "0121a740-e537-4998-a809-26ee87c84a50",
+          "IR3": 5000,
+          "IR5": "null",
+          "IR1": {
+            "IW2": 1,
+            "IW1": [],
+            "IT2": 1,
+            "IT1": "/daily_json.js"
+          },
+          "IR2": {
+            "IW2": 1,
+            "IW1": [
+              {
+                "UId": "ba616f5d-2910-4b80-8ef0-823196aedf0d",
+                "A2": "UsrDate",
+                "IU1": "$.Date",
+                "IU2": "Date",
+                "IU8": "item",
+                "IU4": 1,
+                "IU5": {
+                  "IV1": "null"
+                },
+                "IU6": []
+              },
+              {
+                "UId": "a39bf164-51db-4a83-91d4-d09dc177e34b",
+                "A2": "UsrValue",
+                "IU1": "$.Valute.USD.Value",
+                "IU2": "Float",
+                "IU8": "item",
+                "IU4": 1,
+                "IU5": {
+                  "IV1": "null"
+                },
+                "IU6": []
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

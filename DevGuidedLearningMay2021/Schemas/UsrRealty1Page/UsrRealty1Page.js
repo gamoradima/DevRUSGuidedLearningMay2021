@@ -1,7 +1,27 @@
-define("UsrRealty1Page", [], function() {
+define("UsrRealty1Page", ["UsrRealtyConsts", "ServiceHelper"], function(UsrRealtyConsts, ServiceHelper) {
 	return {
 		entitySchemaName: "UsrRealty",
-		attributes: {},
+		attributes: {
+			"CommissionUSD": {
+				"dataValueType": this.Terrasoft.DataValueType.FLOAT,
+				"type": this.Terrasoft.ViewModelColumnType.VIRTUAL_COLUMN,
+				"value": 0,
+				 dependencies: [
+                    {
+                        // Значение колонки [CommissionUSD] зависит от значений колонок [UsrPriceUSD] 
+                        // и [UsrOfferType].
+                        columns: ["UsrPriceUSD", "UsrOfferType"],
+                        // Метод-обработчик, который вызывается при изменении значения любой из влияющих колонок
+                        methodName: "calculateCommission"
+                    }
+                ]
+			},
+			"UsrOfferType": {
+				lookupListConfig: {
+					columns: ["UsrCommissionCoeff"]
+				}
+			}
+		},
 		modules: /**SCHEMA_MODULES*/{}/**SCHEMA_MODULES*/,
 		details: /**SCHEMA_DETAILS*/{
 			"Files": {
@@ -21,8 +41,59 @@ define("UsrRealty1Page", [], function() {
 				}
 			}
 		}/**SCHEMA_DETAILS*/,
-		businessRules: /**SCHEMA_BUSINESS_RULES*/{}/**SCHEMA_BUSINESS_RULES*/,
+		businessRules: /**SCHEMA_BUSINESS_RULES*/{
+			"UsrComment": {
+				"955d5280-7bf1-42af-b607-3431e143da5d": {
+					"uId": "955d5280-7bf1-42af-b607-3431e143da5d",
+					"enabled": true,
+					"removed": false,
+					"ruleType": 0,
+					"property": 2,
+					"logical": 0,
+					"conditions": [
+						{
+							"comparisonType": 7,
+							"leftExpression": {
+								"type": 1,
+								"attribute": "UsrPriceUSD"
+							},
+							"rightExpression": {
+								"type": 0,
+								"value": 100000,
+								"dataValueType": 5
+							}
+						}
+					]
+				}
+			}
+		}/**SCHEMA_BUSINESS_RULES*/,
 		methods: {
+			calculateCommission: function() {
+				var price = this.get("UsrPriceUSD");
+				var offerTypeObject = this.get("UsrOfferType");
+				var result = 0;
+				if (offerTypeObject) {
+					var coeff = offerTypeObject.UsrCommissionCoeff;
+					result = price * coeff;
+				}
+				this.set("CommissionUSD", result);
+				this.console.log("CommissionUSD = " + result);
+			},
+			onEntityInitialized: function() {
+				this.callParent();
+				this.calculateCommission();
+				this.setRealtyNumber();				
+			},
+			setRealtyNumber: function() {
+				if (this.isAddMode() || this.isCopyMode()) {
+                    // Вызов базового метода Terrasoft.BasePageV2.getIncrementCode, который генерирует номер
+                    // по заданной ранее маске.
+                    this.getIncrementCode(function(response) {
+                        // Сгенерированный номер возвращается в колонку [UsrCode].
+                        this.set("UsrCode", response);
+                    });
+                }
+			},			
 			onMyButtonClick: function() {
 				this.console.log("Наша кнопка работает!");
 			},
@@ -34,13 +105,94 @@ define("UsrRealty1Page", [], function() {
 				}
 				
 				return result;
+			},
+			setValidationConfig: function() {
+                this.callParent(arguments);
+                this.addColumnValidator("UsrPriceUSD", this.positiveValueValidator);
+                this.addColumnValidator("UsrAreaM2", this.positiveValueValidator);
+            },
+			positiveValueValidator: function(value, column) {
+				this.console.log("positiveValueValidator called.");
+				var msg = "";
+				if (value < 0) {
+					msg = this.get("Resources.Strings.ValueMustBePositive");
+				}
+				return {
+					invalidMessage: msg
+				};
+			},
+			asyncValidate: function(callback, scope) {
+				this.callParent([
+					function(response) {
+						if (!this.validateResponse(response)) {
+							return;
+						}
+						this.validateRealtyData(function(response) {
+							if (!this.validateResponse(response)) {
+								return;
+							}
+							callback.call(scope, response);
+						}, this);
+					},
+				this]);
+			},
+			validateRealtyData: function(callback, scope) {
+				// create query for server side
+				var esq = this.Ext.create("Terrasoft.EntitySchemaQuery", {
+					rootSchemaName: "UsrRealty"
+				});
+				esq.addAggregationSchemaColumn("UsrPriceUSD", Terrasoft.AggregationType.SUM, "PriceSum"); // select SUM(UsrPriceUSD) as PriceSum from UsrRealty
+				var saleFilter = esq.createColumnFilterWithParameter(this.Terrasoft.ComparisonType.EQUAL, // WHERE UsrOfferType = продажа
+							"UsrOfferType", UsrRealtyConsts.OfferType.Sale);
+				esq.filters.addItem(saleFilter);
+				// run query
+				esq.getEntityCollection(function(response) {
+					if (response.success && response.collection) {
+						var sum = 0;
+						var items = response.collection.getItems();
+						if (items.length > 0) {
+							sum = items[0].get("PriceSum");
+						}
+						var max = 2000000;
+						if (sum > max) {
+							if (callback) {
+								callback.call(this, {
+									success: false,
+									message: "You cannot save, because sum = " + sum + " is bigger than " + max
+								});
+							}
+						} else
+						if (callback) {
+							callback.call(scope, {
+								success: true
+							});
+						}
+					}
+				}, this);
+			},
+			onRunWebServiceButtonClick: function() {
+				var typeIdObject = this.get("UsrType");
+				if (!typeIdObject) {
+					return;
+				}
+				var typeId = typeIdObject.value;
+				var dataObject = {
+					realtyTypeId: typeId
+				};
+				ServiceHelper.callService("RealtyService", "GetTotalAmountByTypeId", this.getWebServiceResult, dataObject, this);
+			},
+			getWebServiceResult: function(response, success) {
+				if (success) {
+					this.Terrasoft.showInformation("Total amount by typeId: " + response.GetTotalAmountByTypeIdResult);
+				}
 			}
+			
 		},
 		dataModels: /**SCHEMA_DATA_MODELS*/{}/**SCHEMA_DATA_MODELS*/,
 		diff: /**SCHEMA_DIFF*/[
 			{
 				"operation": "insert",
-				"name": "UsrName9a8d71cd-0893-4c46-9c8f-c549b9316861",
+				"name": "STRING94656931-d633-4e40-9769-ee1be2b311ea",
 				"values": {
 					"layout": {
 						"colSpan": 24,
@@ -49,11 +201,29 @@ define("UsrRealty1Page", [], function() {
 						"row": 0,
 						"layoutName": "ProfileContainer"
 					},
-					"bindTo": "UsrName"
+					"bindTo": "UsrCode",
+					"enabled": false
 				},
 				"parentName": "ProfileContainer",
 				"propertyName": "items",
 				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "UsrName9a8d71cd-0893-4c46-9c8f-c549b9316861",
+				"values": {
+					"layout": {
+						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 1,
+						"layoutName": "ProfileContainer"
+					},
+					"bindTo": "UsrName"
+				},
+				"parentName": "ProfileContainer",
+				"propertyName": "items",
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -63,7 +233,7 @@ define("UsrRealty1Page", [], function() {
 						"colSpan": 24,
 						"rowSpan": 1,
 						"column": 0,
-						"row": 1,
+						"row": 2,
 						"layoutName": "ProfileContainer"
 					},
 					"bindTo": "UsrPriceUSD",
@@ -71,7 +241,7 @@ define("UsrRealty1Page", [], function() {
 				},
 				"parentName": "ProfileContainer",
 				"propertyName": "items",
-				"index": 1
+				"index": 2
 			},
 			{
 				"operation": "insert",
@@ -81,7 +251,7 @@ define("UsrRealty1Page", [], function() {
 						"colSpan": 24,
 						"rowSpan": 1,
 						"column": 0,
-						"row": 2,
+						"row": 3,
 						"layoutName": "ProfileContainer"
 					},
 					"bindTo": "UsrAreaM2",
@@ -89,7 +259,28 @@ define("UsrRealty1Page", [], function() {
 				},
 				"parentName": "ProfileContainer",
 				"propertyName": "items",
-				"index": 2
+				"index": 3
+			},
+			{
+				"operation": "insert",
+				"name": "CommissionUSDControl",
+				"values": {
+					"layout": {
+						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 4,
+						"layoutName": "ProfileContainer"
+					},
+					"bindTo": "CommissionUSD",
+					"caption": {
+						"bindTo": "Resources.Strings.CommissionCaption"
+					},
+					"enabled": false
+				},
+				"parentName": "ProfileContainer",
+				"propertyName": "items",
+				"index": 4
 			},
 			{
 				"operation": "insert",
@@ -110,13 +301,37 @@ define("UsrRealty1Page", [], function() {
 						"colSpan": 24,
 						"rowSpan": 1,
 						"column": 0,
-						"row": 3,
+						"row": 5,
 						"layoutName": "ProfileContainer"
 					}
 				},
 				"parentName": "ProfileContainer",
 				"propertyName": "items",
-				"index": 3
+				"index": 5
+			},
+			{
+				"operation": "insert",
+				"name": "RunWebServiceButton",
+				"values": {
+					"itemType": 5,
+					"caption": {
+						"bindTo": "Resources.Strings.RunWebServiceButton"
+					},
+					"click": {
+						"bindTo": "onRunWebServiceButtonClick"
+					},
+					"style": "red",
+					"layout": {
+						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 6,
+						"layoutName": "ProfileContainer"
+					}
+				},
+				"parentName": "ProfileContainer",
+				"propertyName": "items",
+				"index": 6
 			},
 			{
 				"operation": "insert",
@@ -174,6 +389,25 @@ define("UsrRealty1Page", [], function() {
 				"parentName": "Header",
 				"propertyName": "items",
 				"index": 2
+			},
+			{
+				"operation": "insert",
+				"name": "LOOKUP691d32ed-8eef-4d96-a3bc-cfe4d07c99d9",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 2,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrLandlord",
+					"enabled": true,
+					"contentType": 5
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 3
 			},
 			{
 				"operation": "insert",

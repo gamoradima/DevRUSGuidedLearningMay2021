@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "90b32ec5-4ee6-4801-ad17-21d0d3cc3ae9",
+    "Name": "UsrAvgPriceOutputPage",
+    "ModifiedOnUtc": "\/Date(1621950092000)\/",
+    "Parent": {
+      "UId": "5826ff24-46c6-4169-9223-2aaad9ec2e18",
+      "Name": "BasePageSimpleProcessTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Вывод результатов вычислений средней цены"
+  }
+}

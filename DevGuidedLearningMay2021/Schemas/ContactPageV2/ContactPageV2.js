@@ -160,6 +160,40 @@ define("ContactPageV2", [], function() {
 				}
 			},
 			{
+				"operation": "insert",
+				"name": "City6f94d6be-4137-4522-b3f4-824cb28418da",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 3,
+						"layoutName": "ContactGeneralInfoBlock"
+					},
+					"bindTo": "City"
+				},
+				"parentName": "ContactGeneralInfoBlock",
+				"propertyName": "items",
+				"index": 6
+			},
+			{
+				"operation": "insert",
+				"name": "Country094f653a-0839-45bc-b72b-9efa0a967c5e",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 12,
+						"row": 3,
+						"layoutName": "ContactGeneralInfoBlock"
+					},
+					"bindTo": "Country"
+				},
+				"parentName": "ContactGeneralInfoBlock",
+				"propertyName": "items",
+				"index": 7
+			},
+			{
 				"operation": "merge",
 				"name": "JobTabContainer",
 				"values": {

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Вывод результатов вычислений средней цены" />
+			<Item Name="LocalizableStrings.Button1ButtonCaption.Value" Value="Кнопка 1" />
+			<Item Name="LocalizableStrings.Button2ButtonCaption.Value" Value="Кнопка 2" />
+			<Item Name="Parameters.c49bd85e-159a-49ee-b10a-3c3bca63d7d5.Value.003d5b25-d49e-4262-986b-d2d94024c3fa.Caption" Value="Кнопка 2" />
+			<Item Name="Parameters.c49bd85e-159a-49ee-b10a-3c3bca63d7d5.Value.132c15fc-0097-4b6e-817d-1f22f24f6ff5.Caption" Value="Кнопка 1" />
+			<Item Name="Parameters.c49bd85e-159a-49ee-b10a-3c3bca63d7d5.Value.c4841740-ff8c-406f-8626-1c78f78608bf.Caption" Value="Закрыть" />
+			<Item Name="Parameters.c49bd85e-159a-49ee-b10a-3c3bca63d7d5.Value.f073e66a-36ec-47d7-9c6a-e5952dbf05a3.Caption" Value="Сохранить" />
+			<Item Name="Parameters.cc968c37-9fcf-4429-bcab-f5ca22e764fd.Caption" Value="Средняя цена, USD" />
+		</Items>
+	</Group>
+</Resources>

@@ -3,9 +3,12 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Страница редактирования: &quot;Недвижимость&quot;" />
+			<Item Name="LocalizableStrings.CommissionCaption.Value" Value="Комиссия, USD" />
 			<Item Name="LocalizableStrings.MyButtonCaption.Value" Value="Моя кнопка!" />
+			<Item Name="LocalizableStrings.RunWebServiceButton.Value" Value="Запуск веб-сервиса" />
 			<Item Name="LocalizableStrings.Tab899d75edTabLabelTabCaption.Value" Value="ПРОСМОТРЫ" />
 			<Item Name="LocalizableStrings.UsrRealtyVisitDetailDetailCaptionOnPage.Value" Value="Просмотр недвижимости" />
+			<Item Name="LocalizableStrings.ValueMustBePositive.Value" Value="Значение должно быть больше 0" />
 		</Items>
 	</Group>
 </Resources>

@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "fc9c986e-b3e2-47eb-b6d8-e7be82e8e936",
+    "Name": "FileDetailV2",
+    "ModifiedOnUtc": "\/Date(1621606514000)\/",
+    "Parent": {
+      "UId": "0c43958a-a409-47bc-a3cb-9bc32451a45a",
+      "Name": "FileDetailV2"
+    },
+    "ExtendParent": true,
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "FileDetailV2"
+  }
+}
